@@ -1,0 +1,5 @@
+This repository contains Jupyter notebooks and scripts from my attempt at the Kaggle Quora Question Pairs challenge. The task is to decide of two questions asked on Quora are the same, as judged by human annotators. 
+
+eda.ipynb and eda_more_features.ipynb are notebooks containing some initial EDA and attempting to train classifiers based on simple features. Using unigram and bigram overlap ratio along with presence/absence of vocabulary items in the questions I was able to reach ~75% test set accuracy.
+
+nn.py and nn_glove.py are neural network models, buit using Keras. nn_glove.py uses the precomputed GLOVE word embeddings; nn.py a trainable embedding. An LSTM network with 3 layers is used for each question, and these are then concatenated before going into a dense layer to classify as same/not same. The notebook process_limited_vocab.ipynb processes the input data, replacing out-of-vocabulary (rare) words with 'unknown word' tokens; this improved the performance of the trainable embedding version quite a bit. The neural network model gets a test set accuracy of ~78%. 
